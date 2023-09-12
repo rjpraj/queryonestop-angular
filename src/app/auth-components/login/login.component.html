@@ -1,20 +1,23 @@
-<mat-toolbar>
-    <span>LOGIN</span>
-  </mat-toolbar>
-  <mat-card class="my-card">
+<div class="login-container">
+  <mat-card class="login-card">
      <mat-card-content>
-        <form class="my-form">
-           <mat-form-field class="full-width">
+      <h2 class="login-caption">Login</h2>
+        <form [formGroup]="loginForm">
+         <div class="form-input">
+           <mat-form-field>
               <mat-label>Email</mat-label>
-              <input  matInput  placeholder="Email" name="email">
+              <input  matInput  placeholder="Enter your email" name="email" required formControlName="email">
            </mat-form-field>
-           <mat-form-field class="full-width">
-              <mat-label>Password</mat-label>
-              <input  matInput  placeholder="Password" name="password">
-           </mat-form-field>
+         </div>
+         <div class="form-input">
+            <mat-form-field>
+               <mat-label>Password</mat-label>
+               <input  matInput  placeholder="Enter your password" name="password" required formControlName="password">
+            </mat-form-field>
+         </div>
+         <button mat-raised-button color="primary" class="login-button" 
+                 (click)="login()" [disabled]="loginForm.invalid" >Login</button>
         </form>
      </mat-card-content>
-     <!-- <mat-card-actions>
-        <button mat-raised-button (click)="login()" color="primary">LOGIN</button>
-     </mat-card-actions> -->
   </mat-card>
+</div>
