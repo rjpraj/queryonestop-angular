@@ -16,8 +16,11 @@ export class AuthService {
   signup(signupRequest:any):Observable<any>{
     return this.http.post(BASIC_URL+"signup",signupRequest);
   }
-  login(loginRequest:any):Observable<any>{
-    return this.http.post(BASIC_URL+"authentication",loginRequest,
+  login(email:string,password:string):Observable<any>{
+    return this.http.post(BASIC_URL+"authentication",{
+      email,
+      password
+    },
     {observe : 'response'}) // used to same the token in http local strorage 
     .pipe(
       tap((__: any) => this.log("User Authentication")),
