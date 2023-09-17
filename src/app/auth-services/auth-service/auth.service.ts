@@ -29,7 +29,7 @@ export class AuthService {
         const tokenLengthtemp = res.headers.get(AUTH_HEADER);
         if(tokenLengthtemp!=null){
           const tokenLength = tokenLengthtemp.length;
-          const bearerToken = tokenLengthtemp.substring(7,tokenLength);
+          const bearerToken = tokenLengthtemp.substring(7,tokenLength); // remiving bearer from the token
           this.storage.saveToken(bearerToken);
           return res;
         }
